@@ -43,10 +43,12 @@ const Hero = () => {
         {/* Profile Image */}
         <div className="mb-8 relative">
           <div className="w-40 h-40 mx-auto mb-6 relative group">
-            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-teal-500 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300">
-              <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center">
-                <span className="text-4xl font-bold text-gray-700">NS</span>
-              </div>
+            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-teal-500 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300 p-2">
+              <img 
+                src="/Nanthana_photo.jpg" 
+                alt="Nanthana S V" 
+                className="w-full h-full rounded-full object-cover"
+              />
             </div>
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-500 rounded-full opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-300"></div>
           </div>
