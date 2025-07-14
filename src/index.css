@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3b82f6, #14b8a6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2563eb, #0f766e);
+}
+
+/* Smooth scrolling for all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base typography */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+@layer components {
+  /* Enhanced hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-2 shadow-2xl;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent;
+  }
+
+  /* Custom button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-full font-semibold transition-all duration-300 ease-in-out inline-flex items-center gap-2 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-blue-500 py-3 px-8 rounded-full font-semibold transition-all duration-300 ease-in-out border-2 border-blue-500 inline-flex items-center gap-2 hover:bg-blue-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25;
+  }
+
+  /* Section spacing and layout */
+  .section-padding {
+    @apply py-20;
+  }
+
+  /* Navigation enhancements */
+  .navbar {
+    @apply backdrop-blur-md bg-white/90 border-b border-black/10;
+  }
+
+  .nav-link {
+    @apply relative py-2 px-4 text-gray-600 transition-colors duration-300 hover:text-blue-500;
+  }
+
+  .nav-link.active {
+    @apply text-blue-500;
+  }
+
+  .nav-link.active::after {
+    @apply content-[''] absolute -bottom-px left-1/2 -translate-x-1/2 w-4/5 h-0.5 bg-blue-500 rounded-sm;
+  }
+
+  /* Card enhancements */
+  .card {
+    @apply bg-white rounded-2xl p-6 shadow-md border border-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  /* Skill tags */
+  .skill-tag {
+    @apply bg-gradient-to-r from-blue-50 to-teal-50 text-blue-800 py-2 px-4 rounded-2xl text-sm font-medium border border-blue-500/20;
+  }
+
+  /* Timeline styles */
+  .timeline-item {
+    @apply relative pl-8;
+  }
+
+  .timeline-item::before {
+    @apply content-[''] absolute left-0 top-2 w-3 h-3 rounded-full bg-blue-500 border-2 border-white shadow-md shadow-blue-500/50;
+  }
+
+  .timeline-item:not(:last-child)::after {
+    @apply content-[''] absolute left-1.5 top-5 w-0.5 h-full bg-gradient-to-b from-blue-500 to-teal-500;
+  }
+
+  /* Enhanced form styles */
+  .form-input {
+    @apply transition-all duration-300 border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10;
+  }
+
+  /* Progress bar styles */
+  .progress-bar {
+    @apply bg-gradient-to-r from-blue-500 to-teal-500 rounded-full transition-all duration-300;
+  }
+
+  /* Status indicators */
+  .status-online {
+    @apply bg-green-500 shadow-md shadow-green-500/20;
+  }
+
+  .status-busy {
+    @apply bg-amber-500 shadow-md shadow-amber-500/20;
+  }
+
+  /* Text utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent;
+  }
+
+  .bg-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  /* Particle background */
+  .particle-bg {
+    @apply fixed top-0 left-0 w-full h-full pointer-events-none -z-10;
+  }
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold leading-tight text-gray-900;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  @apply text-gray-600 leading-relaxed;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  .section-padding {
+    @apply py-16;
+  }
+  
+  .card {
+    @apply p-5;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus {
+  @apply outline-2 outline-blue-500 outline-offset-2;
+}
+
+/* Print styles */
+@media print {
+  * {
+    color: black !important;
+    background: white !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .card {
+    @apply border-2 border-black;
+  }
+  
+  .btn-primary {
+    @apply border-2 border-black;
+  }
+}
